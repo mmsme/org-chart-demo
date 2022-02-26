@@ -1,0 +1,29 @@
+<div class="container-fluid vh-100 bg-dark bg-gradient py-5">
+  <p-organizationChart
+    [value]="data"
+    selectionMode="single"
+    styleClass="company"
+  >
+    <ng-template let-node pTemplate="person">
+      <div class="card shadow">
+        <div class="card-body">
+          <div class="d-flex align-items-center gap-3">
+            <div
+              class="avatar"
+              [style.backgroundImage]="'url(' + node.data.avatar + ')'"
+            ></div>
+            <div>
+              <div class="media-body text-start">
+                <h5 class="text-capitalize">{{ node.data.name }}</h5>
+                <span class="text-muted fw-bolder">{{ node.data.code }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template let-node pTemplate="department">
+      {{ node.label }}
+    </ng-template>
+  </p-organizationChart>
+</div>
